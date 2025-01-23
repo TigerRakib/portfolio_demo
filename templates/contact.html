@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #121212;
+      }
+
+    header h1 {
+        font-size: 24px;
+      }
+
+    nav a {
+        text-decoration: none;
+        margin: 0 15px;
+        color: #fff;
+        font-weight: bold;
+      }
+
+    nav a:hover {
+        color: orange;
+      }
+
+    .contact-header {
+      text-align: center;
+      padding: 60px 0;
+      margin: 0 50px;
+      background: #1e1e1e;
+    }
+
+    .contact-header h1 {
+      font-size:36px;
+    }
+
+    .contact-header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #888;
+    }
+
+    .contact-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+    }
+
+    .contact-form .form-info {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 90px;
+    }
+
+    .contact-form h2 {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+    .contact-form .c-info{
+      width:40%;
+      margin: 0 125px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input, .contact-form textarea {
+      background: #1e1e1e;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      border-bottom: 2px solid #444;
+    }
+
+    .contact-form button {
+      background: #ff6600;
+      color: #fff;
+      border: none;
+      padding: 10px 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-right:70%;
+      border-radius:20px;
+    }
+
+    .contact-form button:hover {
+      background: #e65c00;
+    }
+    .form-image{
+      height:636px;
+      width:1148px;
+      top:1128px;
+      radius:16px;
+    }
+    .footer-ini{
+      justify-content: space-around;
+      text-align: center;
+      padding: 30px;
+      background: #1e1e1e;
+    }
+    .footer-ini .footer-cta h2{
+      font-family:'Syne';
+      color: #ff6600;
+      font-size:24px;
+    }
+    .footer-ini .footer-cta a{
+      font-family:'Syne';
+      color:rgb(255, 255, 255);
+      font-size:64px;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 30px;
+      background: #1e1e1e;
+    }
+    .footer h2{
+      font-size:30px;
+    }
+    .footer .footer-info p, footer p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  {% for message in messages%}
+    {% if message.tags == "error" %}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">{{message}}</button>
+    {% else%}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">{{message}}</button>
+    {% endif%}
+    
+  {%endfor%}
+  <header>
+    <h1>AARONN</h1>
+    <nav>
+        <a href={% url 'home'%}>Home</a>
+        <a href={% url 'aboutme'%}>About Me</a>
+        <a href={% url 'work' %}>My Works</a>
+        <a href={% url 'contact'%}>Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact-header">
+    <h1>Contact Me</h1>
+    <p>For Any Project Knock Us</p>
+  </section>
+
+  <section class="contact-form">
+    <div class="c-info">
+      <h2>Get in Touch With Us</h2>
+    </div>
+    <div class="form-info">
+      <form action={% url 'contact_form' %} method="post" role="form">
+        {% csrf_token %}
+        <input type="text" name='name' id='name' placeholder="NAME" required>
+        <input type="text" name='subject' id='subject' placeholder="SUBJECT" required>
+        <textarea name='message' id='message' placeholder="MESSAGE" required></textarea>
+        <button type="submit">SEND</button>
+      </form>
+    </div>
+  </section>
+  <div style="text-align: center;">
+    <img src="{% static 'assets/contact_info/Rectangle 6.png' %}" alt="Laptop">
+  </div>
+  <footer>
+    <section class='footer-ini'>
+      <div class="footer-cta">
+        <h2>Get in Touch With Us</h2>
+        <p><a href="mailto:info@aaronn.com">info@aaronn.com</a></p>
+      </div>
+    </section>
+    <section class='footer'>
+      <div class="footer-logo">
+        <h2>AARONN</h2>
+      </div>
+      <div class="footer-info">
+        <p>Street Avenue 21, CA</p>
+        <p>0-8-00-888-000</p>
+      </div>
+      <div>
+        <p>+9 0283353</p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

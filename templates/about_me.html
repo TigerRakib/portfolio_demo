@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Aaronn</title>
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #121212;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: #121212;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav a {
+        text-decoration: none;
+        margin: 0 15px;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: orange;
+    }
+    .about {
+        text-align: center;
+        padding: 50px 20px;
+    }
+    .about h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .about p {
+        font-size: 18px;
+        color: #aaa;
+    }
+    .about-begin{
+      text-align: center;
+      padding: 60px 0;
+      margin: 0 50px;
+      background: #1e1e1e;
+    }
+    .about-content {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .about-content .mission {
+        width:535px;
+        height:336px;
+        top:500px;
+        left:165px;
+        right:80px;
+        flex: 1;
+        line-height:82px;
+        font-family:'Syne'
+    }
+    .about-content .description {
+        flex: 1;
+        max-width: 500px;
+        font-family:"Open Sans";
+        right:100px;
+        left:100px;
+        top:500px;
+        height:336px;
+        text-align: justify;
+    }
+
+    .images {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    .social {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .social-links {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-links a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .footer-ini{
+      justify-content: space-around;
+      text-align: center;
+      padding: 30px;
+      background: #1e1e1e;
+    }
+    .footer-ini .footer-cta h2{
+      font-family:'Syne';
+      color: #ff6600;
+      font-size:24px;
+    }
+    .footer-ini .footer-cta a{
+      font-family:'Syne';
+      color:rgb(255, 255, 255);
+      font-size:64px;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 30px;
+      background: #1e1e1e;
+    }
+    .footer h2{
+      font-size:30px;
+    }
+    .footer .footer-info p, footer p {
+      margin-bottom: 10px;
+    }
+
+    .social-icons a {
+        color: #fff;
+        margin: 0 5px;
+        text-decoration: none;
+    }
+
+    .social-icons a:hover {
+        color: #f90;
+    }
+
+  </style>
+</head>
+<body>
+    <header>
+        <h1>AARONN</h1>
+        <nav>
+            <a href={% url 'home'%}>Home</a>
+            <a href={% url 'aboutme'%}>About Me</a>
+            <a href={% url 'work' %}>My Works</a>
+            <a href={% url 'contact'%}>Contact</a>
+        </nav>
+    </header>
+  <main>
+    <section class="about">
+      <div class='about-begin'>
+        <h1>About Me</h1>
+        <p class="subtitle">Little Brief About Myself</p>
+      </div>
+      <div class="about-content">
+        <div class="mission">
+          <h2 style="font-size: 80px;">My mission is to make design easier.</h2>
+        </div>
+        <div class="description">
+          <p>
+            Create custom Designs with AARONN that converts more visitors than any website. With lots of unique designs, 
+            you can easily select a logo without hassle. Create custom landing logos with AARONN that converts more visitors 
+            than any website. With lots of revisions, you can easily build a logo without problem.
+          </p>
+        </div>
+      </div>
+      <div class="images">
+        <img src="{% static 'assets/about_me/vec.jpg' %}" alt="Person 1" style="width: 361px; height: 515px; border-radius: 16px; object-fit: cover; margin: 10px;">
+        <img src="{% static 'assets/about_me/Vector.png' %}" alt="Person 2" style="width: 750px; height: 515px; border-radius: 16px; object-fit: cover; margin: 10px;">
+      </div>
+    </section>
+    
+    <section class="social">
+      <h2>Follow me on:</h2>
+      <ul class="social-links">
+        <li><a href="#">Dribbble</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </section>
+    
+    <footer>
+      <section class='footer-ini'>
+        <div class="footer-cta">
+          <h2>Get in Touch With Us</h2>
+          <p><a href="mailto:info@aaronn.com">info@aaronn.com</a></p>
+        </div>
+      </section>
+      <section class='footer'>
+        <div class="footer-logo">
+          <h2>AARONN</h2>
+        </div>
+        <div class="footer-info">
+          <p>Street Avenue 21, CA</p>
+          <p>0-8-00-888-000</p>
+        </div>
+        <div>
+          <p>+9 0283353</p>
+        </div>
+      </section>
+    </footer>
+  </main>
+</body>
+</html>

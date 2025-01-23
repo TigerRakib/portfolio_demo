@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AARONN - Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-color: #121212;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #121212;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: orange;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #1c1c1c, #121212);
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-family:'Syne';
+
+        }
+
+        .hero button {
+            background: orange;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .about, .projects, .testimonial, .footer {
+            padding: 50px;
+            text-align: center;
+        }
+        .about {
+            display: flex; /* Activate Flexbox */
+            gap: 10px; /* Optional: space between the divs */
+          }
+      
+        .box {
+            width: 50%; /* Each div will take 50% of the about's width */
+            height:506px;
+            font-family:'Syne';
+            background: linear-gradient(to bottom, #1c1c1c, #121212);
+          }
+      
+        .box:nth-child(odd) {
+            background: linear-gradient(to bottom, #1c1c1c, #121212); 
+          }
+        .box button {
+            background: orange;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .about img {
+            width: 100%;
+            max-width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+        }
+        .projects img {
+            width: 100%;
+            max-width: 300px;
+            margin: 15px;
+            border-radius: 10px;
+        }
+
+        .testimonial blockquote {
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .footer-ini{
+            justify-content: space-around;
+            text-align: center;
+            padding: 30px;
+            background: #1e1e1e;
+          }
+        .footer-ini .footer-cta h2{
+            font-family:'Syne';
+            color: #ff6600;
+            font-size:24px;
+          }
+        .footer-ini .footer-cta a{
+            font-family:'Syne';
+            color:rgb(255, 255, 255);
+            font-size:64px;
+          }
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px;
+            background: #1e1e1e;
+        }
+        .footer h2{
+            font-size:30px;
+        }
+        .footer .footer-info p, footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AARONN</h1>
+        <nav>
+            <a href={% url 'home'%}>Home</a>
+            <a href={% url 'aboutme'%}>About Me</a>
+            <a href={% url 'work' %}>My Works</a>
+            <a href={% url 'contact'%}>Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Adaptive Logo Design for Your Brand</h1>
+        <button><a href={% url 'work' %}>Explore Works</a></button>
+    </div>
+
+    <section class="about">
+        <div class="box">
+            <h2>Let’s get know about me closer</h2>
+            <p>Aaronn is a New York-based visual designer focusing on branding and visual identity. Her portfolio showcases her wide range of work, spanning books, posters, and web design.</p>
+            <button><a href={% url 'aboutme'%}>Discover More About Me</a></button>
+        </div>
+        <div class="box">
+            <img src="{% static 'assets/img/Rectangle 361.png' %}" alt="Project 1">
+        </div>
+        
+    </section>
+
+    <section class="projects">
+        <h2>My Projects Highlight</h2>
+        <div>
+            {% for project in projects %}
+                <img src="{% static project.pro_pic %}" alt="Project 1">
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <h2>Testimonial</h2>
+        <blockquote>
+            "Aaronn was fantastic to work with from start to finish. We were looking for a simple, stand-out logo and he delivered. I would recommend him to anyone looking for a design."
+        </blockquote>
+        <p>- Martin Lee</p>
+    </section>
+
+    <footer>
+        <section class='footer-ini'>
+          <div class="footer-cta">
+            <h2>Get in Touch With Us</h2>
+            <p><a href="mailto:info@aaronn.com">info@aaronn.com</a></p>
+          </div>
+        </section>
+        <section class='footer'>
+          <div class="footer-logo">
+            <h2>AARONN</h2>
+          </div>
+          <div class="footer-info">
+            <p>Street Avenue 21, CA</p>
+            <p>0-8-00-888-000</p>
+          </div>
+          <div>
+            <p>+9 0283353</p>
+          </div>
+        </section>
+    </footer>
+</body>
+</html>
