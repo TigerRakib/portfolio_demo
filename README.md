@@ -1,7 +1,9 @@
 # Personal Portfolio
 
-A Simple Portfolio and Blog app build with Django and templates styled with Bootstrap framework .
-
+A Simple Portfolio app build with Django and templates styled with CSS .
+You can login in ADMIN site by:
+Username:admin
+pasword:admin
 # Running the Project Locally
 
 ## First, clone the repository to your local machine :
